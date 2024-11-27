@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -41,6 +43,13 @@ namespace Webgentle.BookStore
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            // This is useful if we have differnet static files folder to use it 
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    FileProvider = new PhysicalFileProvider(Path.Combile(Directory.GetCurrentDirectory() + "Mystaticfiles")),
+            //    RequestPath = "/MyStaticFIles"
+            //});
 
             app.UseRouting();
 

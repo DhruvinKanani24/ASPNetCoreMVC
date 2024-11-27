@@ -11,9 +11,9 @@ namespace Webgentle.BookStore.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public ActionResult Index()
         {
-            return "Webgentle";
+            return View();
         }
     }
 }
