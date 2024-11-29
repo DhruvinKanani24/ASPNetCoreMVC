@@ -1,8 +1,54 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
+@inject Webgentle.BookStore.Repository.IBookRepository _bookRepository
 
-<div class="text-center">
-    <h1 class="display-4">This is home page of our book store application </h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="jumbotron text-center">
+    <div class="container">
+    <h1>Welcome to Bookstore</h1>
+    <p class="lead text-muted">
+        hgetuisahgrfiuhaswiuhrfiuswhrfiuwhefuihasuirfhuwiefhuadfhsiuhwefuih
+    </p>
+    <p>
+        <a href="#" class="btn btn-primary my-2">Search Books</a>
+    </p>
+        @*@foreach (var item in await _bookRepository.GetAllBooks()) 
+        {       
+            <h2>@item.Title</h2>
+        }*@
+    </div>
+</section>
+
+<div class="py-5 bg-light">
+    <div class="container">
+        @*<h3 class="h3">Top Books</h3>*@
+        <big>Top Books</big>
+        @*<p big>Top book using attribute</p>*@
+
+        @*<vc:top-books count="3"></vc:top-books>*@
+        @await Component.InvokeAsync("TopBooks", new { count = 3 })
+
+    <!--<div class="row">
+        <div class="col-md-4">-->
+            @*<partial name="_bookThumbnail" model="new BookModel()"/>*@
+            <!--@Html.Partial("_bookThumbnail", new BookModel())
+        </div>
+        <div class="col-md-4">-->
+            @*<partial name="_bookThumbnail" model="new BookModel()" />*@
+            <!--@await Html.PartialAsync("_bookThumbnail", new BookModel())
+        </div>
+        <div class="col-md-4">-->
+            @*<partial name="_bookThumbnail" model="new BookModel()" />*@
+            <!--@{
+                Html.RenderPartial("_bookThumbnail", new BookModel());
+            }
+        </div>
+        <div class="col-md-4">-->
+            @*<partial name="_bookThumbnail" model="new BookModel()" />*@
+            <!--@{
+               await Html.RenderPartialAsync("_bookThumbnail", new BookModel());
+            }
+        </div>
+    </div>-->
+    </div>
+</div> 
